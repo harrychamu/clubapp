@@ -28,12 +28,12 @@ jobs:
       - name: Publish to folder
         run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
 
-      - name: dotnet install ef
-        run: dotnet tool install -g dotnet-ef
-
-      - name: dotnet bundle migration
-        run: dotnet ef migrations bundle -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/apptestmoriya/migrate
-
+#      - name: dotnet install ef
+#        run: dotnet tool install -g dotnet-ef
+#
+#      - name: dotnet bundle migration
+#        run: dotnet ef migrations bundle -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/apptestmoriya/migrate
+#
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
